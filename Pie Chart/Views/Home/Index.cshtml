@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+ @Styles.Render("~/Content/Index.css")
+
+    <body class="main">
+        <div class="center-block">
+            <h1><b>Energy Consumption Alert System</b></h1>
+        </div>
+        <div class="left">
+            <div class="container">
+                <h3>Energy consumption in domestic and commercial sector has increased leaps and bounds. In order to reduce/make everyone conserve energy, created a simple app that would monitor the EB readings on...</h3>
+                <br />
+                <h3>This system mainly aims to bring the consumer electricity bill down with the help of the energy consumption alert system. </h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="chart" class="col-md-2">
+                <label> <h4><b> Monitor EB Units Consumption Level</b></h4></label>
+            </div>
+            <div id="text" class="col-md-2">
+            </div>
+            <div id="btnChart" class="col-md-2">
+                <button id="btnChart" class="flat-butt"></b>Click Here</b></button>
+            </div>
+        </div>
+        @using (Html.BeginForm("MessageNotification", "MessageNotification", FormMethod.Post))
+        {
+
+            <div class="row">
+
+
+                <div id="Alert" class="col-md-2">
+                    <label> <h4><b>Set Maximum Unit</b></h4></label>
+                </div>
+                <div id="text" class="col-md-2">
+                    <input name ="MaxUnit" type="text" id="search"/>
+                </div>
+                <div class="col-md-2">
+
+                    <input type ="submit" id='btnAlert' class="flat-butt" value="Submit">
+
+                </div>
+            </div>
+
+        }
+        </body>
+
+@section Scripts{
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+      $('#btnChart').click(function (e)
+      {
+          location.href = '@Url.Content("~/UnitDetail/UnitDetail/")';
+      });
+
+
+    });
+    </script>
+}

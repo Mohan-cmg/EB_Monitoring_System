@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<head>
+    @Styles.Render("~/Content/Index.css")
+
+    <script>
+        
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: ""
+	},
+	axisY: {
+		title: "Units",
+		gridThickness: 0
+    },
+    axisX: {
+		title: "Days",
+		gridThickness: 0
+    },
+	data: [{
+		type: "line",
+        indexLabel: "{Y}" ,
+		showInLegend: true,
+		dataPoints: @Html.Raw(ViewBag.Values)
+	}]
+});
+chart.render();
+
+}
+    </script>
+    <div class="center-block">
+        <h1>EB Units Monitoring</h1>
+    </div>
+</head>
+<body>
+    <div><br /></div>
+    <div id="chartContainer"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <br />
+    <div class="center-block">
+        <b>The graph represents the amount of electricity consumed per day</b>
+    </div>
+
+</body>
+<footer>
+    <button id="btnback" class="flat-butt">Back</button>
+</footer>
+
